@@ -139,6 +139,7 @@ rp.AutoComplete = class AutoComplete
             }
         }                
         this.itemInput.setAttribute('data-value', value);    
+        this.itemInput.value = text;
     }
 
     getSelectedTextAndValue() {
