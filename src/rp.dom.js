@@ -4,6 +4,15 @@ var rp = rp || {};
 
 rp.dom = class dom 
 {
+    static findEl(selector) {
+        if (selector.startsWith('#')) {
+            return document.getElementById(selector.substring(1));
+        }
+        else {
+            return document.querySelector(selector);
+        }
+    }
+
     static documentReady(fn) {
         if (document.attachEvent ? document.readyState === "complete" :
                                    document.readyState !== "loading") {

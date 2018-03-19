@@ -51,6 +51,7 @@ These events let you tailor the behavior of rp.AutoComplete to your specific nee
   
 * **onItemKeyUp** - 
 * **onItemFocus** -  
+* **onSetQueryString** - Arguments: searchValue. This event handler allows you to customize the URL for the Ajax call. This handler is generally used to perform a cascading search with multiple text boxes. 
 * **onItemListDisplay** - Arguments: text, value.  
 * **onItemListClick** - 
 * **onItemListChange** - Use this event to capture the item value while the list is being scrolled. This probably has no use in an app but is good for debugging to the console 
