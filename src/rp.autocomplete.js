@@ -185,7 +185,7 @@ rp.AutoComplete = class AutoComplete
 
         this.handlers.onItemListClick = function(e) 
         {
-            e.currentTarget.style.display = 'none';
+            that.handlers.onItemListBlur(e);
         };
 
         this.handlers.onItemFocus = function(e) {
@@ -271,12 +271,16 @@ rp.AutoComplete = class AutoComplete
 
             e.target.style.display = 'none';
 
-            if (that.options.targetValueElementId) {
-                let target = document.getElementById(that.options.targetValueElementId);
-                if (target) {
-                    let sel = that.getSelectedTextAndValue();                    
-                    target.value = sel.value;
-                }
+            // Assign selected value to target value element if available.
+            // Check if a target element ID is expliclitly provided.
+            let target = document.getElementById(that.options.targetValueElementId);
+            if (!target) {
+                // If not check for __value element.
+                target = document.getElementById(that.options.itemInputId + '__value');                
+            }
+            if (target) {
+                let sel = that.getSelectedTextAndValue();                    
+                target.value = sel.value;
             }                
             
             if (typeof that.options.onItemListBlur === 'function') {

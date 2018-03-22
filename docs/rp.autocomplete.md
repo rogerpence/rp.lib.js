@@ -36,7 +36,11 @@ A note here about uppercase versus lowercase searches.
 * **itemInputId** - Required. The element id of an input tag used to enter search text.
 * **url** - Required. The URL of an HTTP Json service. The value from the input field identified by `itemInputId` is appended to the end of this URL when the service is called. 
 * **focusElementIdAfterSearch** Optional (but recommended). The ID of the element to receive focus after the search is performed and the `itemInputId` element loses focus. Providing this value ensures correct tabbing order after the search selection is made. 
-* **targetValueElementId** Option. This is the ID of an input text element (which is generally hidden) into which the selected value is recorded. Providing this element makes it easy to read the selected value on the server side. (For client side work, after having made a section the itemInputId gets a `data-value` attribute with the selected value assigned to it).
+* **targetValueElementId** Optional. It's usually handy to use a hidden input field to make the selected value easily available to the server side. By default, `rp.autocomplete` looks for an element ID of `itemInputId + '__value'` and if found, stores the selected search's value in that element's `value` attribute. 
+
+	Use this property if you need to need to explicitly provide a target value element Id (I'm looking at you ASP.NET Webforms!). 
+
+	For client side work, after having made a section the `itemInputId` gets a `data-value` attribute with the selected value assigned to it).
 * **incrementalSearch** Optional. If `true` the search is perfor
 med incrementally as backspace key is pressed (thereby removing the last search character each time the backspace key is pressed). For example, assume the current search value is 'john.' When `incrementalSearch` is true, when the backspace key is pressed (and 'john' becomes 'joh') the search is refreshed from the 'joh' value. When `incrementalSearch` is false the user needs to type another key to refresh the search list. Defaults to `false`.
 * **textField** Optional. The name of the Json property to display as text for an associated list item. Defaults to `text`.
