@@ -15,7 +15,7 @@ rp.AutoComplete = class AutoComplete
         rp.dom.setObjectDefaultValue(options, 'divClass', '');
         rp.dom.setObjectDefaultValue(options, 'incrementalSearch', false);
 
-        options.selectId = options.itemInputId + '_select';
+        options.selectId = options.itemInputId + '__select';
 
         this.options = options;
         this.options.ajaxAction = this.showList;
@@ -33,9 +33,20 @@ rp.AutoComplete = class AutoComplete
         }
 
         this.itemInput = document.getElementById(options.itemInputId);
+        if (!this.itemInput) {
+            console.error('Element not found in rp.autocomplete constructor');
+            console.error('Element Id not found ===> ' + options.itemInputId);
+            throw new Error('Element not found in rp.autocomplete constructor: ' + options.itemInputId);
+        }
         this.itemInput.setAttribute('data-value', '');
 
         this.itemList = document.getElementById(options.selectId);
+        if (!this.itemList) {
+            console.error('Element not found in rp.autocomplete constructor');
+            console.error('Element Id not found ===> ' + options.selectId);
+            throw new Error('Element not found in rp.autocomplete constructor: ' + options.selectId);
+        }
+
         this.timer = null;
         this.value = null;
         this.handlers = {}
