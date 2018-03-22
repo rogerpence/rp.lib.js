@@ -22,7 +22,7 @@ rp.AutoComplete = class AutoComplete
 
         let selectTag = document.getElementById(this.options.selectId)
         if (!selectTag) {
-            let sb = new rp.string.StringBuilder();
+            let sb = new rp.StringBuilder();
             sb.append(`<div class="${options.divClass}">`);            
             sb.append(`<select class="${options.selectClass}"`);
             sb.append(' style="position:absolute;display:none;"');
@@ -262,14 +262,23 @@ rp.AutoComplete = class AutoComplete
                 return;
             }
             
-            if (that.options.focusElementAfterSearch) {
-                let nextEl = document.getElementById(that.options.focusElementAfterSearch)
+            if (that.options.focusElementIdAfterSearch) {
+                let nextEl = document.getElementById(that.options.focusElementIdAfterSearch)
                 if (nextEl) {
                     nextEl.focus();
                 }
             }
 
             e.target.style.display = 'none';
+
+            if (that.options.targetValueElementId) {
+                let target = document.getElementById(that.options.targetValueElementId);
+                if (target) {
+                    let sel = that.getSelectedTextAndValue();                    
+                    target.value = sel.value;
+                }
+            }                
+            
             if (typeof that.options.onItemListBlur === 'function') {
                 let sel = that.getSelectedTextAndValue();
                 if (sel !== undefined) {

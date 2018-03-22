@@ -11,7 +11,15 @@ If you need something more complete, take a look at:
 
 ### Classes
 
-#### StringBuilder
+#### rp.String
+
+##### Methods (all methods of this class are static)
+
+* `removeFromEnd(value, re)` From the end of `value` remove pattern `re`. 
+
+* `removeNonNumerics(value)` From `value` remove all non-numeric characters. 
+
+#### rp.StringBuilder
 
 A simple string builder class. This class is similar to, but far less featured, than the StringBuilder class that Java or .NET provide. 
 
