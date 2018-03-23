@@ -32,19 +32,17 @@ rp.AutoComplete = class AutoComplete
             document.body.insertAdjacentHTML('afterbegin', sb.toString());
         }
 
-        this.itemInput = document.getElementById(options.itemInputId);
-        if (!this.itemInput) {
-            console.error('Element not found in rp.autocomplete constructor');
-            console.error('Element Id not found ===> ' + options.itemInputId);
-            throw new Error('Element not found in rp.autocomplete constructor: ' + options.itemInputId);
-        }
+        this.itemInput = rp.dom.getElementById(options.itemInputId);
         this.itemInput.setAttribute('data-value', '');
 
-        this.itemList = document.getElementById(options.selectId);
-        if (!this.itemList) {
-            console.error('Element not found in rp.autocomplete constructor');
-            console.error('Element Id not found ===> ' + options.selectId);
-            throw new Error('Element not found in rp.autocomplete constructor: ' + options.selectId);
+        this.itemList = rp.dom.getElementById(options.selectId);
+
+        if (options.hasOwnProperty('focusElementIdAfterSearch')) {
+            rp.dom.getElementById(this.options.focusElementIdAfterSearch);
+        }
+
+        if (options.hasOwnProperty('targetValueElementId')) {
+            rp.dom.getElementById(this.options.targetValueElementId);
         }
 
         this.timer = null;

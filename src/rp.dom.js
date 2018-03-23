@@ -44,6 +44,18 @@ rp.dom = class dom
         };
     }
 
+    static getElementById(id) {
+        let element = document.getElementById(id);
+
+        if (!element) {
+            console.error('Element not found in DOM');
+            console.error('Element Id not found ===> ' + id);
+            throw new Error('Element not found in DOM: ' + id);
+        }
+
+        return element;
+    }
+
     static clearElementChildren(parent) {
         let el;
         if (typeof parent == 'string') {
