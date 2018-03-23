@@ -60,3 +60,25 @@ These events let you tailor the behavior of rp.AutoComplete to your specific nee
 * **onItemListDisplay** - Arguments: text, value.  
 * **onItemListChange** - Arguments: value. Use this event to capture the item value while the list is being scrolled. This probably has no use in an app but is good for debugging to the console 
 * **onItemListBlur** - Arguments: text, value. Use this event if you want to fetch the selected item immediately after the selection has been made. You might use this method to populate a linked dropdown. item is an object with value and text properties of the selected item. If no selection was made when the event is raises its first argument is undefined. 
+
+### Notes:
+
+* **Watch your z-order!** In some cases a parent element's z-index may cause the select list to appear behind that parent element. If you need to control the z-order of the select list, use the `selectClass` property to ensure a high z-index value on the select list. (The default z-index of the select list is `auto`).
+
+	For example: 
+
+	In a CSS file named `Page.css` define this class:
+
+		.top-most {
+			z-index: 10000;
+		}
+
+	and specify that class name as the selectClass property value:
+	
+		selectClass: 'top-most'		
+
+	To ensure topmost behavior of your select list, you may also need to ensure the z-index of the parent element is lower than the z-order you specify.
+
+	> The [z-context](https://github.com/gwwar/z-context) Chrome extension is a great aid in diagnosing z-index issues.  
+
+	
