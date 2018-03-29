@@ -68,7 +68,7 @@ rp.notifier = class Notifier
             if (op <= 0.3) {                
                 clearInterval(timer);
                 element.removeEventListener('click', that.handlers.onClick);
-                rp.dom.removeElement(element);
+                rp.dom.removeElement(element, 'fading');            
                 that.shiftNotesUp();
             }
             element.style.opacity = op;
@@ -78,7 +78,7 @@ rp.notifier = class Notifier
     }
 
     slideOut(element) {
-        console.log(rp.notifier.status);
+        //console.log(rp.notifier.status);
         let top = 0;
         let height = 0;
         let notes = document.querySelectorAll('.note-container');
@@ -100,7 +100,7 @@ rp.notifier = class Notifier
             }
             if (left == currentLeft) {                
                 rp.notifier.status = 'sliding done';
-                console.log(rp.notifier.status);
+                //console.log(rp.notifier.status);
                 clearInterval(slidingTimer);
 
             }        
@@ -129,8 +129,8 @@ rp.notifier = class Notifier
                     currentTop = newTop;
                 }
                 if (currentTop === newTop) {     
-                    console.log('shifting done');                              
-                    console.log(rp.notifier.status);
+                    //console.log('shifting done');                              
+                    //console.log(rp.notifier.status);
                     clearInterval(shiftingTimer);
                     newTop += sel.height + SPACE_BETWEEN;
                     return;
@@ -207,7 +207,7 @@ rp.notifier = class Notifier
         this.handlers.onClick = function(e) {
             let element = e.target.parentElement.parentElement.parentElement;
             element.removeEventListener('click', that.handlers.onClick);
-            window.clearTimeout(this.disappearTimer);
+//            window.clearTimeout(this.disappearTimer);
             rp.dom.removeElement(element);
             that.shiftNotesUp();
         };
@@ -247,7 +247,7 @@ rp.notifier = class Notifier
         if (this.disappear) {
             fadingTimer =  setTimeout(function(){       
                 rp.notifier.status = 'fading';      
-                console.log(rp.notifier.status);
+                //console.log(rp.notifier.status);
                 that.fade(newNote);        
                 clearInterval(fadingTimer);
             }, that.fadeTime);
