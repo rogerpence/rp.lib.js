@@ -86,9 +86,14 @@ rp.dom = class dom
         }
 
         if (!el) {
-            throw new Error('el value wasn\'t found in removeElement.');
+            return;
         }
     
-        el.parentElement.removeChild(el);
+        try {
+            el.parentElement.removeChild(el);
+        }
+        catch (error) {
+
+        }            
     }
 }
