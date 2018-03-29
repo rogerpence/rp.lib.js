@@ -81,4 +81,8 @@ These events let you tailor the behavior of rp.AutoComplete to your specific nee
 
 	> The [z-context](https://github.com/gwwar/z-context) Chrome extension is a great aid in diagnosing z-index issues.  
 
-	
+* **Getting more than a single value back**  	
+
+	select trim(fullName), npi concat '|' concat pacid
+		
+		1588634182  |0042210403 
