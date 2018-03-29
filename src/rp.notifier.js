@@ -26,13 +26,14 @@ function interval(func, wait, times){
 rp.notifier = class Notifier
 {
     constructor(options) {
+        
         if (typeof rp.notifier.status == 'undefined') {
             rp.notifier.status = '';
         }            
         const FADE_TIME = 6000;
         this.nofade = '';
 
-        if (options.customIcon !== undefined) {
+        if (options.customIcon !== undefined && options.customIcon !== '') {
             this.customIcon = options.customIcon;
         }
 
@@ -48,6 +49,15 @@ rp.notifier = class Notifier
         this.disappearTimer = ''
         this.handlers = {};        
         this.assignHandlers();    
+
+        window.addEventListener('resize', function(){
+            let notes = document.querySelectorAll('.note-container');
+            for (var i = 0; i < notes.length; i++) {
+                let currentNote = notes[i];         
+                let sel = rp.dom.elementLocation(currentNote);
+                currentNote.style.left = window.innerWidth - sel.width - 10 + 'px'                 ;
+            }                
+        });            
     }
 
     fade(element) {
@@ -158,30 +168,37 @@ rp.notifier = class Notifier
         else {
             icon = this.getIcon();
         }
-        let note = new rp.StringBuilder();
 
-        note.append(`<div class="note-container ${this.status} ${this.nofade}"`); 
-        note.append(' style="position:absolute;visibility:hidden" ');
-        note.append(` data-disappear="${this.disappear}">`);
-        note.append(`<div class="icon-container ${this.status}-dark">`);
-        note.append(`<i class="fa ${icon}"></i>`);
-        note.append('</div>');
-        note.append('<div class="text">');
-        note.append('<div class="headline">');
-        note.append(`${heading}`); 
-        note.append('</div>');
-        note.append('<div class="detail">');
-        note.append(`${msg}`); 
-        note.append('</div>');      
-        note.append('</div>');  
+        let manualClose = ''; 
+
         if (this.manualClose) {
-            note.append('<div class="close-icon">');
-            note.append('<a href="#" title="Close this notice" class="notifier-close"><i class="fa fa-times"></i></a>');
-        }            
-        note.append('</div>');       
-        note.append('</div>');     
+            manualClose = 
+                `<div class="close-icon">
+                    <a href="#" title="Close this notice" class="notifier-close">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>`;
+        }
+        
+        let note = 
+           `<div class="note-container ${this.status} ${this.nofade}" 
+                style="position:absolute;visibility:hidden" 
+                data-disappear="${this.disappear}">
+                <div class="icon-container ${this.status}-dark">
+                    <i class="fa ${icon}"></i>
+                </div>
+                <div class="text">
+                    <div class="headline">
+                        ${heading} 
+                    </div>
+                    <div class="detail">
+                        ${msg} 
+                    </div>      
+                </div>                    
+                ${manualClose}
+            </div>`;  
 
-        return note.toString();
+        return note;
     }        
 
     assignHandlers() {
@@ -238,64 +255,3 @@ rp.notifier = class Notifier
     }
 };
 
-rp.dom.documentReady(function() {
-    let count = 3;
-
-    let n1 = new rp.notifier({'disappear' : true,
-                              'manualClose' : true,
-                              'fadeTime' : 7000,
-                              'status': 'success'});
-     n1.show('Images done uploading', `${count} image(s) were successfully uploaded.`);
-
-    setTimeout(function() {
-        let n2 = new rp.notifier({'disappear' : true, 
-                                  'manualClose' : false,
-                                  'status': 'warning'});
-    n2.show('There are input errors', 'See the error list on this page.');   
-    }, 5000)
-
-    setTimeout(function(){
-        let n3 = new rp.notifier({'disappear' : false, 
-                                  'status': 'danger'});
-        n3.show('Danger', 'Watch out for snakes!');
-    }, 7000);        
-
-    setTimeout(function(){
-        let n3 = new rp.notifier({'disappear' : true, 
-                                  'manualClose' : true,
-                                  'customIcon' : 'fa-arrows',                                  
-                                  'fadeTime': 12000,
-                                  'status': 'success'});
-        n3.show('Success', 'Watch out for snakes');
-    }, 15000);        
-
-    setTimeout(function(){
-        let n3 = new rp.notifier({'disappear' : true, 
-                                  'manualClose' : true,
-                                  'fadeTime': 12000,
-                                  'status': 'primary'});
-        n3.show('Primary', 'If everybody had an ocean, across the USA');
-    }, 20000);        
-
-    setTimeout(function(){
-        let n3 = new rp.notifier({'disappear' : true, 
-                                  'manualClose' : true,
-                                  'status': 'secondary'});
-        n3.show('Secondary', 'Second hand man');
-    }, 25000);        
-
-    setTimeout(function(){
-        let n3 = new rp.notifier({'disappear' : true, 
-                                  'manualClose' : true,
-                                  'status': 'light'})
-        n3.show('Light', 'Blinded by the light');
-    }, 30000);        
-
-    setTimeout(function(){
-        let n3 = new rp.notifier({'disappear' : true, 
-                                  'manualClose' : true,
-                                  'status': 'dark'});                                  
-        n3.show('Dark', 'Darkness on the edge of town');
-    }, 35000);        
-
-});
