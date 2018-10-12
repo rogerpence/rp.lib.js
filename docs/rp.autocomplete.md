@@ -7,7 +7,7 @@
 
 `rp.AutoComplete` works by dynamically building a fixed-size `select` tag (essentially using the `select` tag as a listbox) and displaying it adjacent to its corresponding input element. The CodePen link below shows the core behavior of how the `select` tag is displayed.
 
-<p data-height="265" data-theme-id="0" data-slug-hash="MPvOPx" data-default-tab="js,result" data-user="rogerpence" data-pen-title="Make a select tag appear and disappear" class="codepen">See the Pen <a href="https://codepen.io/rogerpence/pen/MPvOPx/">Make a select tag appear and disappear</a> by roger pence (<a href="https://codepen.io/rogerpence">@rogerpence</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="265" data-theme-id="0" data-slug-hash="MPvOPx" data-default-tab="js,result" data-user="rogerpence" data-pen-title="Make a select tag appear and disappear" class="codepen">See the Pen <a href="https://codepen.io/rogerpence/pen/MPvOPx/">Make a select tag appear and disappear</a> on <a href="https://codepen.io">CodePen</a>.</p>
 
 Minimal basic usage:
 
