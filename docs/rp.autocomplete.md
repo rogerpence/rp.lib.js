@@ -3,23 +3,11 @@
 ### rp.AutoComplete: a plain-vanilla JavaScript autocomplete object
 ---
 
-<script 
-
-async src="https://static.codepen.io/assets/embed/ei.js">
-
-</script>
-
-
 `rp.AutoComplete` is a plain vanilla JavaScript autocomplete object. It has one purpose: to Ajax enable a lookup for an `input` tag. Your HTML needs to provide the input tag, but otherwise `rp.AutoComplete` injects the HTML it needs for the lookup list into the page.  
 
-`rp.AutoComplete` works by dynamically building a fixed-size `select` tag (essentially using the `select` tag as a listbox) and displaying it adjacent to its corresponding input element. The CodePen below shows the core behavior of how the `select` tag is displayed.
+`rp.AutoComplete` works by dynamically building a fixed-size `select` tag (essentially using the `select` tag as a listbox) and displaying it adjacent to its corresponding input element. The CodePen link below shows the core behavior of how the `select` tag is displayed.
 
 <p data-height="265" data-theme-id="0" data-slug-hash="MPvOPx" data-default-tab="js,result" data-user="rogerpence" data-pen-title="Make a select tag appear and disappear" class="codepen">See the Pen <a href="https://codepen.io/rogerpence/pen/MPvOPx/">Make a select tag appear and disappear</a> by roger pence (<a href="https://codepen.io/rogerpence">@rogerpence</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-
-
-<p data-height="265" data-theme-id="dark" data-slug-hash="MPvOPx" data-default-tab="js,result" data-user="rogerpence" data-pen-title="Make a select tag appear and disappear" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/rogerpence/pen/MPvOPx/">Make a select tag appear and disappear</a> by roger pence (<a href="https://codepen.io/rogerpence">@rogerpence</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-
-
 
 Minimal basic usage:
 
