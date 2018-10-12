@@ -3,9 +3,12 @@
 ### rp.AutoComplete: a plain-vanilla JavaScript autocomplete object
 ---
 
-<
-script async src="https://static.codepen.io/assets/embed/ei.js">
+<script 
+
+async src="https://static.codepen.io/assets/embed/ei.js">
+
 </script>
+
 
 `rp.AutoComplete` is a plain vanilla JavaScript autocomplete object. It has one purpose: to Ajax enable a lookup for an `input` tag. Your HTML needs to provide the input tag, but otherwise `rp.AutoComplete` injects the HTML it needs for the lookup list into the page.  
 
