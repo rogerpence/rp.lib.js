@@ -11,9 +11,9 @@
 <p data-height="265" data-theme-id="0" data-slug-hash="MPvOPx" data-default-tab="js,result" data-user="rogerpence" data-pen-title="Make a select tag appear and disappear" class="codepen">See the Pen <a href="https://codepen.io/rogerpence/pen/MPvOPx/">Make a select tag appear and disappear</a> by roger pence (<a href="https://codepen.io/rogerpence">@rogerpence</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
 
+<p data-height="265" data-theme-id="dark" data-slug-hash="MPvOPx" data-default-tab="js,result" data-user="rogerpence" data-pen-title="Make a select tag appear and disappear" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/rogerpence/pen/MPvOPx/">Make a select tag appear and disappear</a> by roger pence (<a href="https://codepen.io/rogerpence">@rogerpence</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 
-<p data-height="265" data-theme-id="0" data-slug-hash="MPvOPx" data-default-tab="js,result" data-user="rogerpence" data-pen-title="Make a select tag appear and disappear" data-preview="true" class="codepen">See the Pen <a href="https://codepen.io/rogerpence/pen/MPvOPx/">Make a select tag appear and disappear</a> by roger pence (<a href="https://codepen.io/rogerpence">@rogerpence</a>) on <a href="https://codepen.io">CodePen</a>.</p>
-<script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+
 
 Minimal basic usage:
 
